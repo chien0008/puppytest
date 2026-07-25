@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>狗然沒錯 | Go Run Right - 可愛寵物服飾與精品配件</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: 圓潤清爽字體 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- 頂部導覽列 -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">🐶</span> 狗然沒錯
+      </a>
+      <nav class="nav-links">
+        <a href="#hero">品牌故事</a>
+        <a href="#products">精選商品</a>
+        <a href="#contact">聯絡我們</a>
+      </nav>
+      <button class="cart-btn" id="cart-toggle">
+        🛒 購物車 <span id="cart-count" class="badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero 英雄區塊 -->
+  <section id="hero" class="hero-section">
+    <div class="hero-content">
+      <span class="hero-tag">✨ 可愛插畫風格寵物選品</span>
+      <h1>穿得對，狗狗怎麼看都<span class="highlight">狗然沒錯</span>！</h1>
+      <p>專為毛孩打造的舒適衣服、萌趣帽子與風格背包。嚴選親膚布料，剪裁精緻，讓每一次出門散步都成為焦點。</p>
+      <a href="#products" class="cta-button">立即逛逛 🐾</a>
+    </div>
+    <div class="hero-illustration">
+      <!-- 可愛手繪風格插畫範例 SVG -->
+      <svg viewBox="0 0 200 200" class="dog-svg">
+        <circle cx="100" cy="100" r="80" fill="#FFF2E2"/>
+        <path d="M60,80 C50,40 20,60 40,90 Z" fill="#D98A6C"/>
+        <path d="M140,80 C150,40 180,60 160,90 Z" fill="#D98A6C"/>
+        <circle cx="100" cy="105" r="45" fill="#FCE8D5"/>
+        <circle cx="85" cy="95" r="6" fill="#3D312A"/>
+        <circle cx="115" cy="95" r="6" fill="#3D312A"/>
+        <ellipse cx="100" cy="108" rx="8" ry="6" fill="#3D312A"/>
+        <path d="M95,118 Q100,125 105,118" stroke="#3D312A" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="73" cy="108" r="8" fill="#FFB7B2" opacity="0.6"/>
+        <circle cx="127" cy="108" r="8" fill="#FFB7B2" opacity="0.6"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 主要商品頁面 -->
+  <main id="products" class="main-container">
+    <div class="section-title">
+      <h2>探索商品分類</h2>
+      <p>衣服、帽子、飾品與外出背包，給毛孩全方位的精緻搭配</p>
+    </div>
+
+    <!-- 分類選單 -->
+    <div class="category-tabs" id="category-tabs">
+      <button class="tab-btn active" data-category="all">全部商品 (20+)</button>
+      <button class="tab-btn" data-category="clothes">狗狗衣服 </button>
+      <button class="tab-btn" data-category="hats">寵物帽子 </button>
+      <button class="tab-btn" data-category="acc">精緻飾品 </button>
+      <button class="tab-btn" data-category="bags">外出背包 </button>
+    </div>
+
+    <!-- 商品網格 -->
+    <div class="product-grid" id="product-grid">
+      <!-- 內容由 script.js 動態渲染 -->
+    </div>
+  </main>
+
+  <!-- 聯絡方式與 Footer -->
+  <footer id="contact" class="footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3> 狗然沒錯 Go Run Right</h3>
+        <p>🐶用心呵護每一位毛孩，提供質感與可愛兼具的寵物穿搭🤍</p>
+      </div>
+      <div class="footer-contact">
+        <h4>聯絡客服</h4>
+        <p>Email: 52lxianxian@gmail.com </p>
+        <p>LINE 官方帳號: @thatisright </p>
+        <p>客服時間: Mon - Fri 10:00 - 18:00 </p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 狗然沒錯. Powered by GitHub Pages.</p>
+    </div>
+  </footer>
+
+  <!-- 購物車 Modal -->
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-content">
+      <div class="cart-header">
+        <h3>🛒 您的購物車</h3>
+        <button class="close-btn" id="cart-close">&times;</button>
+      </div>
+      <div class="cart-body" id="cart-items">
+        <p class="empty-msg">購物車目前是空的喔！快幫毛孩挑選好物 🐾</p>
+      </div>
+      <div class="cart-footer">
+        <div class="total-price">
+          <span>總計：</span>
+          <span id="cart-total-price">NT$ 0</span>
+        </div>
+        <button class="checkout-btn" onclick="alert('感謝您的測試下單！這個網站已經準備好線上運作囉！')">前往結帳</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
