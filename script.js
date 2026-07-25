@@ -3,7 +3,7 @@ const products = [
   // --- 狗狗衣服 ---
   {
     id: 1,
-    name: "法式條紋親膚棉T",
+    name: "法式條紋親膚棉T", 
     category: "clothes",
     price: 490,
     desc: "100% 純棉高彈力，經典法式條紋風格，四季皆宜。",
