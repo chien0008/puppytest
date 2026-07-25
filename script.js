@@ -46,8 +46,8 @@ const products = [
     name: "學院風針織馬甲",
     category: "clothes",
     price: 550,
-    desc: "咖色背心",
-    image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=80",
+    desc: "掰不出來sorry",
+    image: "咖色背心",
     colors: ["藏青色", "栗子棕"],
     sizes: ["S", "M", "L"]
   },
