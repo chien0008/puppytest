@@ -1,12 +1,14 @@
+/* --- Pantone 1108 TCX 系列灰褐色調 (Earthy Neutral Palette) --- */
 :root {
-  --bg-color: #FAF7F2;
-  --card-bg: #FFFFFF;
-  --text-main: #3D312A;
-  --text-muted: #8C7E75;
-  --primary: #D98A6C;
-  --primary-hover: #C27557;
-  --accent: #FCE8D5;
-  --border-color: #EFEAE1;
+  --bg-color: #E6E2DD;       /* 12-1108 TCX Wood Ash */
+  --card-bg: #DAD4CD;        /* 13-1108 TCX Oat Milk */
+  --border-color: #C8C1B9;   /* 14-1108 TCX Limestone */
+  --text-muted: #A39A90;     /* 16-1108 TCX Pebble */
+  --primary: #7D736A;        /* 17-1108 TCX Weathered Teak */
+  --primary-hover: #635A52;  /* 18-1108 TCX Fallen Rock */
+  --text-main: #635A52;      /* 18-1108 TCX Fallen Rock */
+  --accent: #C8C1B9;         /* 14-1108 TCX Accent Light */
+  
   --font-family: 'Fredoka', 'Noto Sans TC', sans-serif;
   --radius: 16px;
   --transition: all 0.25s ease;
@@ -29,7 +31,7 @@ body {
 .navbar {
   position: sticky;
   top: 0;
-  background-color: rgba(250, 247, 242, 0.9);
+  background-color: rgba(230, 226, 221, 0.9);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border-color);
   z-index: 100;
@@ -47,7 +49,7 @@ body {
 .logo {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--primary-hover);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -85,12 +87,12 @@ body {
 }
 
 .cart-btn:hover {
-  background: var(--accent);
+  background: var(--border-color);
 }
 
 .badge {
   background: var(--primary);
-  color: white;
+  color: #FFFFFF;
   border-radius: 50%;
   padding: 0.1rem 0.5rem;
   font-size: 0.8rem;
@@ -112,8 +114,9 @@ body {
 }
 
 .hero-tag {
-  background: var(--accent);
-  color: var(--primary);
+  background: var(--card-bg);
+  color: var(--primary-hover);
+  border: 1px solid var(--border-color);
   padding: 0.3rem 0.8rem;
   border-radius: 12px;
   font-size: 0.85rem;
@@ -132,15 +135,16 @@ body {
 }
 
 .hero-content p {
-  color: var(--text-muted);
+  color: var(--text-main);
   margin-bottom: 1.5rem;
   font-size: 1rem;
+  opacity: 0.9;
 }
 
 .cta-button {
   display: inline-block;
   background: var(--primary);
-  color: white;
+  color: #FFFFFF;
   padding: 0.8rem 1.8rem;
   border-radius: 30px;
   text-decoration: none;
@@ -178,10 +182,12 @@ body {
 
 .section-title h2 {
   font-size: 1.8rem;
+  color: var(--text-main);
 }
 
 .section-title p {
-  color: var(--text-muted);
+  color: var(--text-main);
+  opacity: 0.8;
 }
 
 /* Filter Tabs */
@@ -200,13 +206,13 @@ body {
   border-radius: 20px;
   cursor: pointer;
   font-size: 0.95rem;
-  color: var(--text-muted);
+  color: var(--text-main);
   transition: var(--transition);
 }
 
 .tab-btn.active, .tab-btn:hover {
   background: var(--primary);
-  color: white;
+  color: #FFFFFF;
   border-color: var(--primary);
 }
 
@@ -229,7 +235,7 @@ body {
 
 .product-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.03);
+  box-shadow: 0 10px 20px rgba(99, 90, 82, 0.08);
 }
 
 .product-img {
@@ -237,7 +243,7 @@ body {
   height: 180px;
   object-fit: cover;
   border-radius: 12px;
-  background-color: var(--accent);
+  background-color: var(--border-color);
 }
 
 .product-info {
@@ -250,12 +256,14 @@ body {
 .product-title {
   font-size: 1.1rem;
   font-weight: 600;
+  color: var(--text-main);
   margin-bottom: 0.3rem;
 }
 
 .product-desc {
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-main);
+  opacity: 0.8;
   margin-bottom: 0.8rem;
 }
 
@@ -269,7 +277,8 @@ body {
 
 .option-label {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--primary-hover);
+  font-weight: 600;
 }
 
 .option-selector {
@@ -284,14 +293,15 @@ body {
   border: 1px solid var(--border-color);
   border-radius: 6px;
   cursor: pointer;
-  background: #fff;
+  background: var(--bg-color);
+  color: var(--text-main);
   transition: var(--transition);
 }
 
 .chip.active {
-  background: var(--accent);
+  background: var(--primary);
   border-color: var(--primary);
-  color: var(--primary);
+  color: #FFFFFF;
   font-weight: 600;
 }
 
@@ -307,12 +317,12 @@ body {
 .price {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--primary-hover);
 }
 
 .add-cart-btn {
-  background: var(--text-main);
-  color: white;
+  background: var(--primary);
+  color: #FFFFFF;
   border: none;
   padding: 0.5rem 0.9rem;
   border-radius: 10px;
@@ -322,7 +332,7 @@ body {
 }
 
 .add-cart-btn:hover {
-  background: var(--primary);
+  background: var(--primary-hover);
 }
 
 /* --- Cart Modal --- */
@@ -333,7 +343,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.4);
+  background: rgba(99, 90, 82, 0.4);
   z-index: 200;
   justify-content: center;
   align-items: center;
@@ -344,7 +354,7 @@ body {
 }
 
 .cart-content {
-  background: white;
+  background: var(--bg-color);
   width: 90%;
   max-width: 450px;
   border-radius: var(--radius);
@@ -352,6 +362,7 @@ body {
   max-height: 80vh;
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--border-color);
 }
 
 .cart-header {
@@ -366,6 +377,7 @@ body {
   background: none;
   border: none;
   font-size: 1.5rem;
+  color: var(--text-main);
   cursor: pointer;
 }
 
@@ -387,11 +399,12 @@ body {
 .cart-item-title {
   font-weight: 600;
   font-size: 0.9rem;
+  color: var(--text-main);
 }
 
 .cart-item-meta {
   font-size: 0.8rem;
-  color: var(--text-muted);
+  color: var(--primary-hover);
 }
 
 .cart-footer {
@@ -404,24 +417,30 @@ body {
   justify-content: space-between;
   font-size: 1.1rem;
   font-weight: 700;
+  color: var(--text-main);
   margin-bottom: 1rem;
 }
 
 .checkout-btn {
   width: 100%;
   background: var(--primary);
-  color: white;
+  color: #FFFFFF;
   border: none;
   padding: 0.8rem;
   border-radius: 12px;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
+  transition: var(--transition);
+}
+
+.checkout-btn:hover {
+  background: var(--primary-hover);
 }
 
 /* --- Footer --- */
 .footer {
-  background: #F3ECE1;
+  background: var(--card-bg);
   margin-top: 4rem;
   padding: 3rem 1.5rem 1rem;
   border-top: 1px solid var(--border-color);
@@ -440,7 +459,8 @@ body {
 .footer-bottom {
   text-align: center;
   font-size: 0.85rem;
-  color: var(--text-muted);
+  color: var(--text-main);
+  opacity: 0.8;
   border-top: 1px solid var(--border-color);
   padding-top: 1rem;
 }
