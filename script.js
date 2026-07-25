@@ -1,6 +1,6 @@
-// 已全數替換為專屬「狗狗服裝、帽子、飾品、後背包」特寫與穿搭照
+// 商品資料 (專屬狗狗服服飾特寫與穿搭照)
 const products = [
-  // --- 狗狗衣服 (Focus on Dog Apparel) ---
+  // --- 狗狗衣服 ---
   {
     id: 1,
     name: "法式條紋親膚棉T",
@@ -52,7 +52,7 @@ const products = [
     sizes: ["S", "M", "L"]
   },
 
-  // --- 寵物帽子 (Focus on Dog Hats) ---
+  // --- 寵物帽子 ---
   {
     id: 6,
     name: "手作手工編織草帽",
@@ -94,7 +94,7 @@ const products = [
     sizes: ["單一尺寸"]
   },
 
-  // --- 配件飾品 (Focus on Dog Bandana / Collars / Accessories) ---
+  // --- 配件飾品 ---
   {
     id: 10,
     name: "手作印花圍巾脖圍",
@@ -146,7 +146,7 @@ const products = [
     sizes: ["M", "L"]
   },
 
-  // --- 外出背包 (Focus on Dog Carrier / Backpack) ---
+  // --- 外出背包 ---
   {
     id: 15,
     name: "毛孩自背防撿食小背包",
@@ -208,3 +208,149 @@ const products = [
     sizes: ["S", "M", "L"]
   }
 ];
+
+let cart = [];
+const selectedOptions = {};
+
+// ⚡ 核心初始化邏輯：確保頁面載入後自動渲染商品
+document.addEventListener("DOMContentLoaded", () => {
+  renderProducts("all");
+  setupCategoryTabs();
+  setupCartModal();
+});
+
+function renderProducts(filterCategory) {
+  const grid = document.getElementById("product-grid");
+  if (!grid) return; // 防呆機制
+  
+  grid.innerHTML = "";
+
+  const filtered = filterCategory === "all" 
+    ? products 
+    : products.filter(p => p.category === filterCategory);
+
+  filtered.forEach(p => {
+    if (!selectedOptions[p.id]) {
+      selectedOptions[p.id] = {
+        color: p.colors[0],
+        size: p.sizes[0]
+      };
+    }
+
+    const card = document.createElement("div");
+    card.className = "product-card";
+
+    card.innerHTML = `
+      <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
+      <div class="product-info">
+        <h3 class="product-title">${p.name}</h3>
+        <p class="product-desc">${p.desc}</p>
+        
+        <div class="options-group">
+          <span class="option-label">顏色:</span>
+          <div class="option-selector">
+            ${p.colors.map(c => `
+              <span class="chip ${selectedOptions[p.id].color === c ? 'active' : ''}" 
+                    onclick="selectOption(${p.id}, 'color', '${c}')">${c}</span>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="options-group">
+          <span class="option-label">尺寸:</span>
+          <div class="option-selector">
+            ${p.sizes.map(s => `
+              <span class="chip ${selectedOptions[p.id].size === s ? 'active' : ''}" 
+                    onclick="selectOption(${p.id}, 'size', '${s}')">${s}</span>
+            `).join('')}
+          </div>
+        </div>
+
+        <div class="product-bottom">
+          <span class="price">NT$ ${p.price}</span>
+          <button class="add-cart-btn" onclick="addToCart(${p.id})">加入購物車</button>
+        </div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function selectOption(productId, type, value) {
+  selectedOptions[productId][type] = value;
+  const activeTab = document.querySelector(".tab-btn.active")?.dataset.category || "all";
+  renderProducts(activeTab);
+}
+
+function setupCategoryTabs() {
+  const tabs = document.querySelectorAll(".tab-btn");
+  tabs.forEach(tab => {
+    tab.addEventListener("click", (e) => {
+      tabs.forEach(t => t.classList.remove("active"));
+      e.target.classList.add("active");
+      renderProducts(e.target.dataset.category);
+    });
+  });
+}
+
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  const opt = selectedOptions[productId];
+
+  const cartItem = {
+    ...product,
+    selectedColor: opt.color,
+    selectedSize: opt.size,
+    cartId: `${productId}-${opt.color}-${opt.size}`
+  };
+
+  cart.push(cartItem);
+  updateCartUI();
+  alert(`已將「${product.name} (${opt.color} / ${opt.size})」加入購物車！🐾`);
+}
+
+function updateCartUI() {
+  document.getElementById("cart-count").innerText = cart.length;
+
+  const cartItemsContainer = document.getElementById("cart-items");
+  const totalPriceEl = document.getElementById("cart-total-price");
+
+  if (cart.length === 0) {
+    cartItemsContainer.innerHTML = '<p class="empty-msg">購物車目前是空的喔！快去幫毛孩挑選好物吧 🐾</p>';
+    totalPriceEl.innerText = "NT$ 0";
+    return;
+  }
+
+  let total = 0;
+  cartItemsContainer.innerHTML = cart.map((item, index) => {
+    total += item.price;
+    return `
+      <div class="cart-item">
+        <div>
+          <div class="cart-item-title">${item.name}</div>
+          <div class="cart-item-meta">${item.selectedColor} / ${item.selectedSize} - NT$ ${item.price}</div>
+        </div>
+        <button class="close-btn" style="font-size: 1rem;" onclick="removeFromCart(${index})">&times;</button>
+      </div>
+    `;
+  }).join('');
+
+  totalPriceEl.innerText = `NT$ ${total}`;
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartUI();
+}
+
+function setupCartModal() {
+  const modal = document.getElementById("cart-modal");
+  const btn = document.getElementById("cart-toggle");
+  const closeBtn = document.getElementById("cart-close");
+
+  if (btn && modal) btn.onclick = () => modal.classList.add("open");
+  if (closeBtn && modal) closeBtn.onclick = () => modal.classList.remove("open");
+  window.onclick = (e) => {
+    if (e.target === modal) modal.classList.remove("open");
+  };
+}
