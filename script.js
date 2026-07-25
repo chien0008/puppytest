@@ -1,9 +1,9 @@
-// 商品資料 (圖片皆已更換為寵物服飾與穿搭照片)
+// 已全數替換為專屬「狗狗服裝、帽子、飾品、後背包」特寫與穿搭照
 const products = [
-  // --- 狗狗衣服 ---
+  // --- 狗狗衣服 (Focus on Dog Apparel) ---
   {
     id: 1,
-    name: "法式條紋親膚棉T", 
+    name: "法式條紋親膚棉T",
     category: "clothes",
     price: 490,
     desc: "100% 純棉高彈力，經典法式條紋風格，四季皆宜。",
@@ -52,7 +52,7 @@ const products = [
     sizes: ["S", "M", "L"]
   },
 
-  // --- 寵物帽子 ---
+  // --- 寵物帽子 (Focus on Dog Hats) ---
   {
     id: 6,
     name: "手作手工編織草帽",
@@ -94,7 +94,7 @@ const products = [
     sizes: ["單一尺寸"]
   },
 
-  // --- 配件飾品 ---
+  // --- 配件飾品 (Focus on Dog Bandana / Collars / Accessories) ---
   {
     id: 10,
     name: "手作印花圍巾脖圍",
@@ -146,14 +146,14 @@ const products = [
     sizes: ["M", "L"]
   },
 
-  // --- 外出背包 ---
+  // --- 外出背包 (Focus on Dog Carrier / Backpack) ---
   {
     id: 15,
     name: "毛孩自背防撿食小背包",
     category: "bags",
     price: 480,
     desc: "可裝撿便袋與小零食，狗狗自己背玩具！",
-    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=80",
     colors: ["黃色小鴨", "牛巧棕"],
     sizes: ["S", "M"]
   },
@@ -203,151 +203,8 @@ const products = [
     category: "bags",
     price: 520,
     desc: "胸背帶結合側包，工裝戶外風格帥氣實用。",
-    image: "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=600&q=80",
+    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80",
     colors: ["沙漠卡其", "戰術黑"],
     sizes: ["S", "M", "L"]
   }
 ];
-
-let cart = [];
-const selectedOptions = {};
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderProducts("all");
-  setupCategoryTabs();
-  setupCartModal();
-});
-
-function renderProducts(filterCategory) {
-  const grid = document.getElementById("product-grid");
-  grid.innerHTML = "";
-
-  const filtered = filterCategory === "all" 
-    ? products 
-    : products.filter(p => p.category === filterCategory);
-
-  filtered.forEach(p => {
-    if (!selectedOptions[p.id]) {
-      selectedOptions[p.id] = {
-        color: p.colors[0],
-        size: p.sizes[0]
-      };
-    }
-
-    const card = document.createElement("div");
-    card.className = "product-card";
-
-    card.innerHTML = `
-      <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
-      <div class="product-info">
-        <h3 class="product-title">${p.name}</h3>
-        <p class="product-desc">${p.desc}</p>
-        
-        <div class="options-group">
-          <span class="option-label">顏色:</span>
-          <div class="option-selector">
-            ${p.colors.map(c => `
-              <span class="chip ${selectedOptions[p.id].color === c ? 'active' : ''}" 
-                    onclick="selectOption(${p.id}, 'color', '${c}')">${c}</span>
-            `).join('')}
-          </div>
-        </div>
-
-        <div class="options-group">
-          <span class="option-label">尺寸:</span>
-          <div class="option-selector">
-            ${p.sizes.map(s => `
-              <span class="chip ${selectedOptions[p.id].size === s ? 'active' : ''}" 
-                    onclick="selectOption(${p.id}, 'size', '${s}')">${s}</span>
-            `).join('')}
-          </div>
-        </div>
-
-        <div class="product-bottom">
-          <span class="price">NT$ ${p.price}</span>
-          <button class="add-cart-btn" onclick="addToCart(${p.id})">加入購物車</button>
-        </div>
-      </div>
-    `;
-    grid.appendChild(card);
-  });
-}
-
-function selectOption(productId, type, value) {
-  selectedOptions[productId][type] = value;
-  const activeTab = document.querySelector(".tab-btn.active").dataset.category;
-  renderProducts(activeTab);
-}
-
-function setupCategoryTabs() {
-  const tabs = document.querySelectorAll(".tab-btn");
-  tabs.forEach(tab => {
-    tab.addEventListener("click", (e) => {
-      tabs.forEach(t => t.classList.remove("active"));
-      e.target.classList.add("active");
-      renderProducts(e.target.dataset.category);
-    });
-  });
-}
-
-function addToCart(productId) {
-  const product = products.find(p => p.id === productId);
-  const opt = selectedOptions[productId];
-
-  const cartItem = {
-    ...product,
-    selectedColor: opt.color,
-    selectedSize: opt.size,
-    cartId: `${productId}-${opt.color}-${opt.size}`
-  };
-
-  cart.push(cartItem);
-  updateCartUI();
-  alert(`已將「${product.name} (${opt.color} / ${opt.size})」加入購物車！🐾`);
-}
-
-function updateCartUI() {
-  document.getElementById("cart-count").innerText = cart.length;
-
-  const cartItemsContainer = document.getElementById("cart-items");
-  const totalPriceEl = document.getElementById("cart-total-price");
-
-  if (cart.length === 0) {
-    cartItemsContainer.innerHTML = '<p class="empty-msg">購物車目前是空的喔！快去幫毛孩挑選好物吧 🐾</p>';
-    totalPriceEl.innerText = "NT$ 0";
-    return;
-  }
-
-  let total = 0;
-  cartItemsContainer.innerHTML = cart.map((item, index) => {
-    total += item.price;
-    return `
-      <div class="cart-item">
-        <div>
-          <div class="cart-item-title">${item.name}</div>
-          <div class="cart-item-meta">${item.selectedColor} / ${item.selectedSize} - NT$ ${item.price}</div>
-        </div>
-        <button class="close-btn" style="font-size: 1rem;" onclick="removeFromCart(${index})">&times;</button>
-      </div>
-    `;
-  }).join('');
-
-  totalPriceEl.innerText = `NT$ ${total}`;
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  updateCartUI();
-}
-
-function setupCartModal() {
-  const modal = document.getElementById("cart-modal");
-  const btn = document.getElementById("cart-toggle");
-  const closeBtn = document.getElementById("cart-close");
-
-  btn.onclick = () => modal.classList.add("open");
-  closeBtn.onclick = () => modal.classList.remove("open");
-  window.onclick = (e) => {
-    if (e.target === modal) modal.classList.remove("open");
-  };
-}
