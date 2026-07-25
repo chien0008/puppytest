@@ -1,10 +1,14 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>狗然沒錯 | Go Run Right - 可愛寵物服飾與精品配件</title>
-  <link rel="stylesheet" href="style.css" />
+
+  <!-- 💡 加入 ?v=2.0 版本號標籤，強制瀏覽器刷掉舊快取 -->
+  <link rel="stylesheet" href="style.css?v=2.0" />
+
+  <!-- Google Fonts: 圓潤清爽字體 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -31,23 +35,24 @@
   <!-- Hero 英雄區塊 -->
   <section id="hero" class="hero-section">
     <div class="hero-content">
-      <span class="hero-tag">可愛插畫風格寵物選品</span>
+      <span class="hero-tag">✨ 可愛插畫風格寵物選品</span>
       <h1>穿得對，狗狗怎麼看都<span class="highlight">狗然沒錯</span>！</h1>
       <p>專為毛孩打造的舒適衣服、萌趣帽子與風格背包。嚴選親膚布料，剪裁精緻，讓每一次出門散步都成為焦點。</p>
       <a href="#products" class="cta-button">立即逛逛 🐾</a>
     </div>
     <div class="hero-illustration">
+      <!-- 可愛手繪風格插畫 SVG -->
       <svg viewBox="0 0 200 200" class="dog-svg">
-        <circle cx="100" cy="100" r="80" fill="#FFF2E2"/>
-        <path d="M60,80 C50,40 20,60 40,90 Z" fill="#D98A6C"/>
-        <path d="M140,80 C150,40 180,60 160,90 Z" fill="#D98A6C"/>
-        <circle cx="100" cy="105" r="45" fill="#FCE8D5"/>
-        <circle cx="85" cy="95" r="6" fill="#3D312A"/>
-        <circle cx="115" cy="95" r="6" fill="#3D312A"/>
-        <ellipse cx="100" cy="108" rx="8" ry="6" fill="#3D312A"/>
-        <path d="M95,118 Q100,125 105,118" stroke="#3D312A" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <circle cx="73" cy="108" r="8" fill="#FFB7B2" opacity="0.6"/>
-        <circle cx="127" cy="108" r="8" fill="#FFB7B2" opacity="0.6"/>
+        <circle cx="100" cy="100" r="80" fill="#E6E2DD"/>
+        <path d="M60,80 C50,40 20,60 40,90 Z" fill="#7D736A"/>
+        <path d="M140,80 C150,40 180,60 160,90 Z" fill="#7D736A"/>
+        <circle cx="100" cy="105" r="45" fill="#DAD4CD"/>
+        <circle cx="85" cy="95" r="6" fill="#635A52"/>
+        <circle cx="115" cy="95" r="6" fill="#635A52"/>
+        <ellipse cx="100" cy="108" rx="8" ry="6" fill="#635A52"/>
+        <path d="M95,118 Q100,125 105,118" stroke="#635A52" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="73" cy="108" r="8" fill="#C8C1B9" opacity="0.6"/>
+        <circle cx="127" cy="108" r="8" fill="#C8C1B9" opacity="0.6"/>
       </svg>
     </div>
   </section>
@@ -62,16 +67,14 @@
     <!-- 分類選單 -->
     <div class="category-tabs" id="category-tabs">
       <button class="tab-btn active" data-category="all">全部商品 (20+)</button>
-      <button class="tab-btn" data-category="clothes"> 衣著 </button>
-      <button class="tab-btn" data-category="hats"> 配件 </button>
-      <button class="tab-btn" data-category="acc"> 飾品 </button>
-      <button class="tab-btn" data-category="bags"> 外出用品 </button>
+      <button class="tab-btn" data-category="clothes">衣著</button>
+      <button class="tab-btn" data-category="hats">配件</button>
+      <button class="tab-btn" data-category="acc">飾品</button>
+      <button class="tab-btn" data-category="bags">外出用品</button>
     </div>
 
-    <!-- 商品網格 -->
-    <div class="product-grid" id="product-grid">
-      <!-- 內容由 script.js 動態渲染 -->
-    </div>
+    <!-- 商品網格 (由 script.js 動態渲染) -->
+    <div class="product-grid" id="product-grid"></div>
   </main>
 
   <!-- 聯絡方式與 Footer -->
@@ -84,7 +87,7 @@
       <div class="footer-contact">
         <h4>聯絡客服</h4>
         <p>Email: 52lxianxian@gmail.com</p>
-        <p>Instagram 官方帳號: @thatisright</p>
+        <p>Instagrram官方帳號: @thatisright</p>
         <p>客服時間: Mon - Fri 10:00 - 18:00</p>
       </div>
     </div>
@@ -108,11 +111,12 @@
           <span>總計：</span>
           <span id="cart-total-price">NT$ 0</span>
         </div>
-        <button class="checkout-btn" onclick="alert('正式月去死')">前往結帳</button>
+        <button class="checkout-btn" onclick="alert('感謝您的測試下單！這個網站已經準備好線上運作囉！')">前往結帳</button>
       </div>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <!-- 💡 加入 ?v=2.0 版本號標籤，確保載入最新動態腳本與商品資料 -->
+  <script src="script.js?v=2.0"></script>
 </body>
 </html>
