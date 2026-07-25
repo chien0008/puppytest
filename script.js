@@ -47,7 +47,7 @@ const products = [
     category: "clothes",
     price: 550,
     desc: "掰不出來sorry",
-    image: "咖色背心",
+    image: "咖色背心.png",
     colors: ["藏青色", "栗子棕"],
     sizes: ["S", "M", "L"]
   },
