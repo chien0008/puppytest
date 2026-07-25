@@ -7,7 +7,7 @@ const products = [
     category: "clothes",
     price: 490,
     desc: "100% 純棉高彈力，經典法式條紋風格，四季皆宜。",
-    image: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=600&q=80",
+    image: "條紋背心.png",
     colors: ["經典藍", "燕麥黃", "櫻花粉"],
     sizes: ["S", "M", "L", "XL"]
   },
