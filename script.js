@@ -1,12 +1,12 @@
 // 商品資料 (專屬狗狗服服飾特寫與穿搭照)
 const products = [
-  // --- 狗狗衣服 ---
+  // --- 衣著 (clothes) ---
   {
     id: 1,
     name: "法式條紋親膚棉T",
     category: "clothes",
     price: 490,
-    desc: "100% 純棉高彈力，經典法式條紋風格",
+    desc: "100% 純棉高彈力，經典法式條紋風格，四季皆宜。",
     image: "條紋背心.png",
     colors: ["經典藍", "燕麥黃", "櫻花粉"],
     sizes: ["S", "M", "L", "XL"]
@@ -16,8 +16,8 @@ const products = [
     name: "華夫格棉質小恐龍保暖套裝",
     category: "clothes",
     price: 680,
-    desc: "就恐龍裝，我掰不出介紹了啦",
-    image: "黃色恐龍.png",
+    desc: "可愛萌趣連帽造型，背後立體小刺角，冬天保暖又萌翻天。",
+    image: "黃色恐龍.png", // 💡 請確認 GitHub 上有上傳 黃色恐龍.png
     colors: ["奶油黃", "莫蘭迪綠"],
     sizes: ["S", "M", "L"]
   },
@@ -26,7 +26,7 @@ const products = [
     name: "莫蘭迪綠奶油防水斗篷",
     category: "clothes",
     price: 590,
-    desc: "輕巧防微雨，穿脫極速，適合戶外散步穿著",
+    desc: "輕巧防微雨，穿脫極速，適合戶外散步穿著。",
     image: "綠色斗篷.png",
     colors: ["抹茶綠", "芥末黃"],
     sizes: ["M", "L", "XL"]
@@ -36,7 +36,7 @@ const products = [
     name: "碎花小清新家居服",
     category: "clothes",
     price: 420,
-    desc: "透氣不黏毛，室內防掉毛的質感居家必備",
+    desc: "透氣不黏毛，室內防掉毛的質感居家必備。",
     image: "小碎花.png",
     colors: ["薄荷綠", "柔粉色"],
     sizes: ["XS", "S", "M", "L"]
@@ -46,13 +46,13 @@ const products = [
     name: "學院風針織馬甲",
     category: "clothes",
     price: 550,
-    desc: "掰不出來sorry",
-    image: "咖色背心.png",
+    desc: "英倫學院V領設計，軟綿不刺癢，拍照超出片。",
+    image: "咖色背心.png", // 💡 已補上 .png 副檔名
     colors: ["藏青色", "栗子棕"],
     sizes: ["S", "M", "L"]
   },
 
-  // --- 寵物帽子 ---
+  // --- 配件 (hats) ---
   {
     id: 6,
     name: "手作手工編織草帽",
@@ -94,14 +94,14 @@ const products = [
     sizes: ["單一尺寸"]
   },
 
-  // --- 配件飾品 ---
+  // --- 飾品 (acc) ---
   {
     id: 10,
     name: "手作印花圍巾脖圍",
     category: "acc",
     price: 280,
     desc: "雙面可戴，隨性打結即有型。",
-    image: " ",
+    image: "圍巾.png",
     colors: ["黃色黃橘", "小紅花"],
     sizes: ["S", "M"]
   },
@@ -111,7 +111,7 @@ const products = [
     category: "acc",
     price: 350,
     desc: "可調整長度安全扣，正式場合優雅亮相。",
-    image: " ",
+    image: "領結.png",
     colors: ["經典黑", "酒紅色"],
     sizes: ["S", "M", "L"]
   },
@@ -121,7 +121,7 @@ const products = [
     category: "acc",
     price: 310,
     desc: "韓系小花風格，棉麻質感溫柔滿分。",
-    image: " ",
+    image: "小花領巾.png",
     colors: ["奶油黃", "薰衣草紫"],
     sizes: ["通用款"]
   },
@@ -131,7 +131,7 @@ const products = [
     category: "acc",
     price: 450,
     desc: "可客製化雕刻名字，輕巧無負擔。",
-    image: " ",
+    image: "皮革項圈.png",
     colors: ["原皮棕", "橄欖綠"],
     sizes: ["S", "M", "L"]
   },
@@ -141,19 +141,19 @@ const products = [
     category: "acc",
     price: 290,
     desc: "高亮反射光條，夜間散步安全感加倍。",
-    image: " ",
+    image: "發光項圈.png",
     colors: ["螢光橙", "螢光綠"],
     sizes: ["M", "L"]
   },
 
-  // --- 外出背包 ---
+  // --- 外出用品 (bags) ---
   {
     id: 15,
     name: "毛孩自背防撿食小背包",
     category: "bags",
     price: 480,
     desc: "可裝撿便袋與小零食，狗狗自己背玩具！",
-    image: " ",
+    image: "小背包.png",
     colors: ["黃色小鴨", "牛巧棕"],
     sizes: ["S", "M"]
   },
@@ -163,7 +163,7 @@ const products = [
     category: "bags",
     price: 1180,
     desc: "解放雙手！透氣網布加寬肩帶，飼主減壓設計。",
-    image: " ",
+    image: "胸前包.png",
     colors: ["星空灰", "燕麥米"],
     sizes: ["M", "L"]
   },
@@ -173,7 +173,7 @@ const products = [
     category: "bags",
     price: 890,
     desc: "探頭防脫逃扣環，極簡美觀的大容量帆布包。",
-    image: " ",
+    image: "帆布包.png",
     colors: ["原色帆布", "軍綠色"],
     sizes: ["L"]
   },
@@ -183,7 +183,7 @@ const products = [
     category: "bags",
     price: 1350,
     desc: "大視野透明面罩，外出搭公車捷運最方便。",
-    image: " ",
+    image: "硬殼包.png",
     colors: ["櫻花粉", "薄荷綠"],
     sizes: ["標準尺寸"]
   },
@@ -193,7 +193,7 @@ const products = [
     category: "bags",
     price: 1680,
     desc: "可背可拉，適合長途旅行與高齡犬使用。",
-    image: " ",
+    image: "拉桿包.png",
     colors: ["質感黑"],
     sizes: ["大容量"]
   },
@@ -203,7 +203,7 @@ const products = [
     category: "bags",
     price: 520,
     desc: "胸背帶結合側包，工裝戶外風格帥氣實用。",
-    image: " ",
+    image: "鞍包.png",
     colors: ["沙漠卡其", "戰術黑"],
     sizes: ["S", "M", "L"]
   }
@@ -212,7 +212,7 @@ const products = [
 let cart = [];
 const selectedOptions = {};
 
-// ⚡ 核心初始化邏輯：確保頁面載入後自動渲染商品
+// 初始化
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts("all");
   setupCategoryTabs();
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function renderProducts(filterCategory) {
   const grid = document.getElementById("product-grid");
-  if (!grid) return; // 防呆機制
+  if (!grid) return;
   
   grid.innerHTML = "";
 
@@ -240,8 +240,9 @@ function renderProducts(filterCategory) {
     const card = document.createElement("div");
     card.className = "product-card";
 
+    // 💡 點擊圖片會觸發大圖觀看
     card.innerHTML = `
-      <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy">
+      <img src="${p.image}" alt="${p.name}" class="product-img" loading="lazy" onerror="this.onerror=null; this.src='https://via.placeholder.com/300x300/DAD4CD/635A52?text=圖片載入中...';">
       <div class="product-info">
         <h3 class="product-title">${p.name}</h3>
         <p class="product-desc">${p.desc}</p>
