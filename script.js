@@ -59,7 +59,7 @@ const products = [
     category: "hats",
     price: 320,
     desc: "遮陽透氣，附調節防風繩，夏日野餐必備。",
-    image: " ",
+    image: "草帽.png",
     colors: ["原木色"],
     sizes: ["單一尺寸"]
   },
@@ -69,7 +69,7 @@ const products = [
     category: "hats",
     price: 380,
     desc: "留耳孔設計不壓耳朵，帥氣潮流風。",
-    image: " ",
+    image: "牛仔帽.png",
     colors: ["丹寧藍", "卡其色"],
     sizes: ["S", "M"]
   },
@@ -79,7 +79,7 @@ const products = [
     category: "hats",
     price: 290,
     desc: "手工鉤針編織，搞怪又吸睛的冬天拍照配件。",
-    image: " ",
+    image: "青蛙.png",
     colors: ["鮮綠色"],
     sizes: ["通用款"]
   },
@@ -89,7 +89,7 @@ const products = [
     category: "hats",
     price: 250,
     desc: "毛孩過生日專屬！軟布材質不傷頭皮。",
-    image: " ",
+    image: "皇冠.png",
     colors: ["閃亮金", "夢幻粉"],
     sizes: ["單一尺寸"]
   },
